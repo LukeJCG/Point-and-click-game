@@ -14,24 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - itemId: 0
-    itemName: 
-    itemDescription: 
+    itemName: Knife
+    itemDescription: 'Who we killing? '
     itemSprite: {fileID: 0}
     allowMultiple: 0
     amount: 0
   - itemId: 1
-    itemName: 
-    itemDescription: 
+    itemName: Lockpicks
+    itemDescription: Something to use to unlock doors. Nice!
     itemSprite: {fileID: 0}
-    allowMultiple: 0
-    amount: 0
-  - itemId: 2
-    itemName: 
-    itemDescription: 
-    itemSprite: {fileID: 0}
-    allowMultiple: 0
+    allowMultiple: 1
     amount: 0
   itemsNames:
-  - 
-  - 
-  - 
+  - Knife
+  - Lockpicks

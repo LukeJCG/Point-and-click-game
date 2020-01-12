@@ -23,7 +23,7 @@ public class ItemDatabaseEditor : Editor
        // base.OnInspectorGUI();
        if (GUILayout.Button("Add Item"))
         {
-            Item newItem = new Item(s_items.arraySize, "", "");
+            Item newItem = new Item(s_items.arraySize, "", "", null, false);
             source.AddItem(newItem);
         }
 
@@ -32,6 +32,9 @@ public class ItemDatabaseEditor : Editor
             //draw the item entry
             DrawItemEntry(s_items.GetArrayElementAtIndex(i));
         }
+
+        if (GUI.changed)
+            ReCalculateID();
 
         serializedObject.ApplyModifiedProperties();
     }
@@ -60,8 +63,10 @@ public class ItemDatabaseEditor : Editor
         EditorGUILayout.PropertyField(item.FindPropertyRelative("itemDescription"));
 
         GUILayout.BeginHorizontal();
+
         item.FindPropertyRelative("itemSprite").objectReferenceValue = EditorGUILayout.ObjectField("Item Sprite: ", item.FindPropertyRelative("itemSprite").objectReferenceValue, typeof(Sprite), false);
         EditorGUILayout.PropertyField(item.FindPropertyRelative("allowMultiple"));
+
         GUILayout.EndHorizontal();
 
         GUILayout.EndVertical();

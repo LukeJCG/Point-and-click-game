@@ -9,4 +9,11 @@ public static class Extensions
     {
         return EventSystem.current.IsPointerOverGameObject();
     }
+
+    public static Item CopyItem(Item item)
+    {
+        Item newItem = new Item(item.ItemId, item.ItemName, item.ItemDesc, item.ItemSprite, item.AllowMultple);
+
+        return newItem;
+    }
 }
