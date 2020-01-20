@@ -14,4 +14,50 @@ public class Inventory : ScriptableObject
     }
 
     public ItemDatabase ItemDatabase { get { return itemDatabase; } }
+
+    public int CheckAmount(Item item)
+    {
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (inventory[i].ItemId == item.ItemId)
+            {
+                if (inventory[i].AllowMultple)
+                {
+                    return inventory[i].Amount;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        }
+        return 0;
+    }
+
+    public void ModifyItemAmount(Item item, int amount)
+    {
+        for (int i = 0; 1 < inventory.Count; i++)
+        {
+            if (inventory[i].ItemId == item.ItemId)
+            {
+                if (inventory[i].AllowMultple)
+                {
+                    inventory[i].ModifyAmount(-amount);
+
+                    if (inventory[i].Amount <= 0)
+                        inventory.RemoveAt(i);
+                }
+                else
+                {
+                    inventory.RemoveAt(i);
+                }
+
+                return;
+            }
+        }
+
+        Item newItem = Extensions.CopyItem(item);
+        newItem.ModifyAmount(amount);
+        AddItem(newItem);
+    }
 }
