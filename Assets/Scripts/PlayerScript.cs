@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0)) //If left mouse button is clicked, execute "OnClick"
+        if (Input.GetMouseButton(0) && !Extensions.IsMouseOverUI()) //If left mouse button is clicked, execute "OnClick" 
             OnClick();
 
         if (turning && transform.rotation != targerRot) //If turning is true and if the transform.rotation isn't the same as the targetRot

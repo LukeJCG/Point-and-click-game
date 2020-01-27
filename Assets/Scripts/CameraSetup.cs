@@ -29,7 +29,7 @@ public class CameraSetup : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        Camera.main.transform.position = new Vector3(-2.417f, 2.405f, 9.89f);
+        Camera.main.transform.position = new Vector3(-1.88f, 2.405f, 9.47f);
         Camera.main.transform.localEulerAngles = new Vector3(22.442f, -229.815f, 0f);
     }
 
